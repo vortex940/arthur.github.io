@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>反思日記 · Reflection Log</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <header class="hero">
+      <p class="eyebrow">Weekly Reflection · 每週反思</p>
+      <h1>進度與反思日記</h1>
+      <p class="subtitle">
+        記錄每週進度，寫下此刻的想法。<br />
+        <span class="highlight">趁星期二，好好沈澱一下自己。</span>
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <span id="stat-count" class="stat-num">0</span>
+          <span class="stat-label">篇數</span>
+        </div>
+        <div class="stat">
+          <span id="stat-latest" class="stat-num">—</span>
+          <span class="stat-label">最近紀錄</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="composer card">
+        <h2>新增一篇反思</h2>
+        <form id="reflection-form">
+          <div class="grid">
+            <div class="field">
+              <label for="title">標題</label>
+              <input
+                id="title"
+                type="text"
+                placeholder="e.g. 第七週 · 期中考前檢討"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="date">日期</label>
+              <input id="date" type="date" required />
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="field">
+              <label for="progress">本週進度 💪</label>
+              <textarea
+                id="progress"
+                rows="3"
+                placeholder="這週完成了什麼？學會了什麼、做到了什麼？"
+              ></textarea>
+            </div>
+            <div class="field">
+              <label for="reflect">反思 🧠</label>
+              <textarea
+                id="reflect"
+                rows="3"
+                placeholder="有什麼困難？下一週想如何調整？"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <div class="tag-box">
+              <label class="tag-label">標籤</label>
+              <select id="tag">
+                <option value="progress">進度</option>
+                <option value="reflection" selected>反思</option>
+                <option value="milestone">里程碑</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-primary">存進日記 ✦</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="entries">
+        <div class="entries-head">
+          <h2>反思牆</h2>
+          <div class="toolbar">
+            <input
+              id="search"
+              type="search"
+              placeholder="搜尋標題或內容…"
+            />
+            <select id="filter">
+              <option value="all">全部標籤</option>
+              <option value="progress">進度</option>
+              <option value="reflection">反思</option>
+              <option value="milestone">里程碑</option>
+            </select>
+          </div>
+        </div>
+        <div id="entry-list" class="entry-list"></div>
+        <p id="empty-state" class="empty-state">
+          還沒有任何記錄。寫下第一條反思吧 ✏️
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made for me · Reflected every Tuesday 🌱</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
